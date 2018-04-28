@@ -1,6 +1,11 @@
 group 'shumingl'
 version '1.0-SNAPSHOT'
 
+ext {
+    serverClassName = 'cn.shumingl.tcpka.server.TcpKAServerMain'
+    clientClassName = 'cn.shumingl.tcpka.client.TcpKAClientMain'
+}
+
 apply plugin: 'java'
 apply plugin: 'application'
 
@@ -19,11 +24,39 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
-mainClassName = 'cn.shumingl.tcpka.server.TcpKAServerMain'
+def type = 'server'
+if (project.hasProperty('type')) {
+    type = project['type']
+}
+
+
 jar {
+    baseName = "tcp-keepalive"
+    mainClassName = (type == 'client' ? clientClassName : serverClassName)
     manifest {
-        attributes("Built-By": "shumingl",
-                "Created-By": "shumingl",
-                "version": "1.0")
+        attributes "Built-By": "shumingl"
+        attributes "Created-By": "shumingl"
+        attributes "version": "1.0"
+        attributes 'Main-Class': type == 'client' ? clientClassName : serverClassName
+    }
+}
+
+distZip {
+    baseName = "tcp-keepalive-${type}"
+}
+
+/*编码UTF-8*/
+[compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+tasks.withType(JavaExec) {
+    jvmArgs += ['-Dfile.encoding=UTF-8']
+}
+
+startScripts {
+    doLast {
+        unixScript.text = unixScript.text.replace(
+                'CLASSPATH=\$APP_HOME/', 'CLASSPATH=\$APP_HOME:\$APP_HOME/')
+        windowsScript.text = windowsScript.text.replace(
+                'CLASSPATH=%APP_HOME%\\', 'CLASSPATH=%APP_HOME%;%APP_HOME%\\')
     }
 }

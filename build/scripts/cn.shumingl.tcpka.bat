@@ -63,7 +63,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\cn.shumingl.tcpka-1.0-SNAPSHOT.jar;%APP_HOME%\lib\joda-time-2.9.9.jar;%APP_HOME%\lib\jackson-databind-2.9.5.jar;%APP_HOME%\lib\jackson-annotations-2.9.0.jar;%APP_HOME%\lib\jackson-core-2.9.5.jar
+set CLASSPATH=%APP_HOME%;%APP_HOME%\lib\tcp-keepalive-1.0-SNAPSHOT.jar;%APP_HOME%\lib\joda-time-2.9.9.jar;%APP_HOME%\lib\jackson-databind-2.9.5.jar;%APP_HOME%\lib\jackson-annotations-2.9.0.jar;%APP_HOME%\lib\jackson-core-2.9.5.jar
 
 @rem Execute cn.shumingl.tcpka
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %CN_SHUMINGL_TCPKA_OPTS%  -classpath "%CLASSPATH%" cn.shumingl.tcpka.server.TcpKAServerMain %CMD_LINE_ARGS%

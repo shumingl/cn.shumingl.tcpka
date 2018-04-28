@@ -2,4 +2,5 @@ Manifest-Version: 1.0
 Built-By: shumingl
 version: 1.0
 Created-By: shumingl
+Main-Class: cn.shumingl.tcpka.server.TcpKAServerMain
 

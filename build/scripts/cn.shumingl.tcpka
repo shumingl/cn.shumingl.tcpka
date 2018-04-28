@@ -64,7 +64,7 @@ case "`uname`" in
     ;;
 esac
 
-CLASSPATH=$APP_HOME/lib/cn.shumingl.tcpka-1.0-SNAPSHOT.jar:$APP_HOME/lib/joda-time-2.9.9.jar:$APP_HOME/lib/jackson-databind-2.9.5.jar:$APP_HOME/lib/jackson-annotations-2.9.0.jar:$APP_HOME/lib/jackson-core-2.9.5.jar
+CLASSPATH=$APP_HOME:$APP_HOME/lib/tcp-keepalive-1.0-SNAPSHOT.jar:$APP_HOME/lib/joda-time-2.9.9.jar:$APP_HOME/lib/jackson-databind-2.9.5.jar:$APP_HOME/lib/jackson-annotations-2.9.0.jar:$APP_HOME/lib/jackson-core-2.9.5.jar
 
 # Determine the Java command to use to start the JVM.
 if [ -n "$JAVA_HOME" ] ; then

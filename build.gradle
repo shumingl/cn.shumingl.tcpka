@@ -37,7 +37,7 @@ jar {
         attributes "Built-By": "shumingl"
         attributes "Created-By": "shumingl"
         attributes "version": "1.0"
-        attributes 'Main-Class': type == 'client' ? clientClassName : serverClassName
+        attributes 'Main-Class': mainClassName
     }
 }
 

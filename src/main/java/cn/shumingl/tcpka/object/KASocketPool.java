@@ -47,7 +47,7 @@ public class KASocketPool implements ResourcePool<KASocket> {
     }
 
     private boolean check(KASocket socket) {
-        return socket.isAvailable() && !socket.isUsed();
+        return socket.isAvailable();
     }
 
     private void destroy(KASocket socket) {
